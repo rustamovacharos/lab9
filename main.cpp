@@ -1,293 +1,326 @@
-
-  //problem1 (recursion)
- /* int multipl(int a,int b){
-    if (b==0){
-      return 0;
-    }
-    if (b>0){
-      return a+ multipl(a,b-1);
-    }
-    if (b<0){
-      return -a+ multipl(a,b+1);
-    }}
-
-
-#include <iostream>
+//problem //ARRAYS
+//PROBLEM 1
+/*#include<iostream>
 using namespace std;
-int main(){
-  cout<<"enter two numbers ";
-  int a,b;
-  cin>>a>> b;
-  cout<<"multiplication of "<<a<<" and "<<b<<" is "<<multipl(a,b);
+int main(){*/
+/*int n;
+  cout<<"how many elements you want to store";
+  cin>>n;
+  int arrays[n];
+int sum=0;
+
+
+
+ for (int i=0;i<n;i++){
+   cin>>arrays[i];
+  sum+=arrays[i];
+ }
+   cout<<sum;
+  return 0;
+
 }
 */
 
-//problem 2
-/*int factorial (int n){
-  if (n==0){
-    return 1;//boshidagi farqi
-  }
-  return n*factorial(n-1);//n-1 dicrement parti oldidegi n oxirgi kopayishi bogan son
+//problem2
 
-}
-#include <iostream>
-using namespace std;
-int main(){
-  int n;
-  cout<<"choose number for factorial ";
-  cin>>n;
-  cout<<"factorial of "<<n<<" is "<<factorial(n);
-}*/
+/* int n;
+ cout<<"how many elements you want to store";
+ cin>>n;
+ int arrays[n];
+int sum=0;
+int average;
 
+
+ for(int i=0;i<n;i++){
+   cin>>arrays[i];
+   sum+=arrays[i];
+ }
+
+ average=sum/n;
+ cout<<"average is "<<average;
+ return 0;}*/
+
+// I write include iostream again for problem 3 to indicate proper usage of function
 
 //problem 3
-/*int fibonacci(int n){
-  if (n==0){
-    return 0;
-  }
-  if (n==1){
-    return 1;
-  }
-return fibonacci(n-1) + fibonacci (n-2);
+/*#include<iostream>
+using namespace std;
+
+int findmin(int arr[],int size){
+   int min=arr[0];
+  for(int i=1;i<size;i++){
+      if(arr[i]<min){
+        min=arr[i];
+      }
+    }
+  return min;
 }
 
-#include <iostream>
-using namespace std;
+
 int main(){
-  int n;
-  cout<<"choose number for fibonacci ";
-  cin>>n;
-  cout<<"fibonacci of "<<n<<" is "<<fibonacci(n);
-}*/
 
-
-//problem 4;
-
-/*int sum(int N){
-  if (N==0){
-    return 0;
-  }
-  return N + sum(N-1);
+int size;
+cin>>size;
+int minArray[size];
+for(int i=0;i<size;i++){
+cin>>minArray[i];
 }
-#include <iostream>
+
+cout<<"min is" <<findmin(minArray,size);
+  }*/
+
+//problem 4
+/*#include<iostream>
 using namespace std;
+
+void findmax(double arr[],int size,int &index,double &max){
+ max=arr[0];
+ index=0;
+  for(int i=1;i<size;i++){
+    if (arr[i]>max){
+      max=arr[i];
+      index=i+1;
+    }
+  }
+}
+
 int main(){
-  int N;
-  cin>>N;
-  cout<<"sum of "<<N<<" is "<<sum(N);
+  int size;
+  cout<<"how many elements you want to store: ";
+  cin>>size;
+  if (size<=0){
+    return -1;
+  }
+
+  int index;
+  double max;
+  double maxArray[size];
+  for(int i=0;i<size;i++){
+    cin>>maxArray[i];
+
+  }
+ findmax(maxArray,size,index,max);
+  cout<<"max is "<<max<<"index is"<<index;
 }*/
 
 
 //problem 5
-/*#include <iostream>
+/*#include<iostream>
 using namespace std;
 
-int func (int n){
-  if (n==1){
-    cout<<n<<" ";
-    return 1;
+bool strictlyEqual(const int list1[],const int list2[],int size){
+  for(int i=0;i<size;i++){
+    if(list1[i]!=list2[i]){
+      return false;
+    }
+    else return true;
   }
-
-  cout<<n<<" ";
-    return func(n-1);
 }
-
 
 int main(){
-  int n;
-  cin>>n;
- func(n);
-}
+  int size;
+  cout<<"how many elements you want to store: ";
+  cin>>size;
+  if (size<=0){
+    return -1;
+  }
+
+  int list1[size];
+  int list2[size];
+  for(int i=0;i<size;i++){
+    cin>>list1[i];
+  }
+  for(int i=0;i<size;i++){
+    cin>>list2[i];
+  }
+  strictlyEqual(list1,list2,size);
+
+   if (strictlyEqual(list1, list2, size)) {
+          cout << "The two lists are strictly identical." << endl;
+      } else {
+          cout << "The two lists are not strictly identical." << endl;
+      }
+
+      return 0;
+  }
 */
+
 
 //problem 6
 /*#include <iostream>
 using namespace std;
-int digit(int n,int count=0){
-  if (n==0){
-    return count;
-  }
 
-  return digit(n/10,count+1);
+int main() {
+    int frequency[26] = {0};
+    char ch;
 
-}
+    cout << "Enter characters (enter '0' to terminate):\n";
+
+    while (true) {
+        cin >> ch;
 
 
-int main(){
-  int n;
-  cin>>n;
-  cout<<"number of digits in "<<n<<" is "<<digit(n);
+        if (ch == '0') {
+            break;
+        }
 
+
+        if (ch >= 'a' && ch <= 'z') {
+            frequency[ch - 'a']++;
+        }
+    }
+
+
+    cout << "\nLetter frequencies:\n";
+    for (int i = 0; i < 26; i++) {
+        if (frequency[i] > 0) {
+            cout << (char)(i + 'a') << ": " << frequency[i] << endl;
+        }
+    }
+
+    return 0;
 }*/
-
-
 
 //problem 7
-/*int digit(int n){
-  if (n==0){
-    return 0;
-  }
-  return n%10 + digit(n/10);
-}
-#include <iostream>
-using namespace std;
-int main(){
-  int n;
-  cin>>n;
-  cout<<"sum of digits in "<<n<<" is "<<digit(n);
-}
-*/
 
-//problem 8
-/*int power_numbers (int x, int y){
-  if (y==0){
-    return 1;
-  }
-  else return x * power_numbers(x,y-1);
-}
-#include <iostream>
-using namespace std;
-int main(){
-  int x,y;
-  cin>>x>>y;
-  cout<<x<<" to the power of "<<y<< " is "<<power_numbers(x,y);
-}*/
-
-//problem 9
+//7
 /*#include <iostream>
 using namespace std;
 
-int reverse(int number, int reversedNum = 0) {
+int main() {
+    int n;
 
-    if (number == 0) {
-        return reversedNum;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    int arr[25];
+
+
+    cout << "Enter " << n << " integers:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
 
-    int last_digit = number % 10;
+
+    for (int i = 0; i < n - 1; i++) {
+        for (int j = 0; j < n - 1 - i; j++) {
+            if (arr[j] > arr[j + 1]) {
+
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+            }
+        }
+    }
 
 
-    reversedNum = reversedNum * 10 + last_digit;
-    return reverse(number / 10, reversedNum);
-}
+    cout << "Sorted array:\n";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
 
-int main() {
-    int number;
-    cout << "Enter a number: ";
-    cin >> number;
-
-    int reversedNumber = reverse(number);
-    cout << "Original number is " << number << endl;
-    cout << "Reversed number is " << reversedNumber << endl;
-
+    cout << endl;
     return 0;
 }
 */
 
+//prblem 8
 
+  /*#include <iostream>
+  using namespace std;
 
-/* PROBLEM 10
-#include <iostream>
-using namespace std;
+  int main() {
+      int counts[6] = {0};
+      unsigned int seed = 1;
+      for (int i = 0; i < 10000; i++) {
+          seed = seed * 1103515245 + 12345;
+          int roll = (seed % 6) + 1;
+          counts[roll - 1]++;
+      }
+      for (int i = 0; i < 6; i++) {
+          cout << "Value " << (i + 1) << " occurred " << counts[i] << " times." << endl;
+      }
 
-int count_digit(int number) {
-    if (number == 0) {
-        return 0;
-    }
-    return 1 + count_digit(number / 10);
-}
+      return 0;
+  }
 
+*/
 
-int powerOfTen(int power) {
-    int result = 1;
-    for (int i = 0; i < power; i++) {
-        result *= 10;
-    }
-    return result;
-}
-
-
-int is_palindrome(int number, int original_number, int numDigits) {
-
-    if (numDigits <= 1) {
-        return 1;
-    }
-
-
-    int firstDigit = number / powerOfTen(numDigits - 1);
-    int lastDigit = number % 10;
-
-
-    if (firstDigit != lastDigit) {
-        return 0;
-    }
-
-
-    int remainingNumber = (number % powerOfTen(numDigits - 1)) / 10;
-
-
-    return is_palindrome(remainingNumber, original_number, numDigits -2);
-}
-
-int is_palindrome(int number) {
-
-    if (number < 0) {
-        return 0;
-    }
-
-
-    int numDigits = count_digit(number);
-
-
-    return is_palindrome(number, number, numDigits);
-}
-
-int main() {
-    int number;
-    cout << "Enter a number: ";
-    cin >> number;
-
-    if (is_palindrome(number)) {
-        cout << number << " is a palindrome." << endl;
-    } else {
-        cout << number << " is not a palindrome." << endl;
-    }
-
-    return 0;
-}*/
-
-//problem 11
-
+//9
 /*#include <iostream>
 using namespace std;
 
 
-int Prime(int n, int divisor = 2) {
+void reverseArray(int arr[], int start, int end) {
+    while (start < end) {
 
-    if (n <= 1) {
-        return 0;
-    }
-    if (divisor * divisor > n) {
-        return 1;
-    }
-    if (n % divisor == 0) {
-        return 0;
-    }
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
 
 
-    return Prime(n, divisor + 1);
+        start++;
+        end--;
+    }
 }
 
 int main() {
-    int number;
-    cout << "Enter a number: ";
-    cin >> number;
+    int n;
 
-    if (Prime(number)) {
-        cout << number << " is a prime number." << endl;
-    } else {
-        cout << number << " is not a prime number." << endl;
+
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    int arr[25];
+
+    cout << "Enter " << n << " elements:\n";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
     }
 
+
+    reverseArray(arr, 0, n - 1);
+
+
+    cout << "Reversed array:\n";
+    for (int i = 0; i < n; i++) {
+        cout << arr[i] << " ";
+    }
+
+    cout << endl;
     return 0;
 }
 */
+
+//10
+/*#include <iostream>
+using namespace std;
+
+int main() {
+    int n;
+    cout << "Enter number of elements: ";
+    cin >> n;
+
+    int arr[25];
+    cout << "Enter " << n << " positive integers:";
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+    }
+
+    bool sorted = true;
+
+    for (int i = 1; i < n; i++) {
+        if (arr[i] < arr[i - 1]) {
+            sorted = false;
+            break;
+        }
+    }
+
+    if (sorted)
+        cout << "YES" << endl;
+    else
+        cout << "NO" << endl;
+
+    return 0;
+}
